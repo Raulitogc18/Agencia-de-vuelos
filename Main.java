@@ -1,8 +1,6 @@
-import java.util.Scanner;
-
-// Importa correctamente Lugar y VuelosController
-import Modelos.Lugar;
 import Controlador.VuelosController;
+import Modelos.Lugar;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +22,6 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    // Usar métodos de VuelosController para crear y asignar datos al lugar
                     lugar = vuelosController.crearLugar(scanner);
                     vuelosController.asignarHotel(lugar, scanner);
                     vuelosController.asignarPuntosDeInteres(lugar, scanner);

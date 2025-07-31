@@ -1,19 +1,25 @@
 package Modelos;
 
-//Nombre de la clase 
+// Nombre de la clase 
 public class Vuelos {
 
-    //Atributos de la clase
+    // Atributos de la clase
     private final String marcaAvion;
     private final int asiento;
 
-    //Constructor de la clase
+    // Constructor vacío (Opción A)
+    public Vuelos() {
+        this.marcaAvion = "Desconocida";
+        this.asiento = 0;
+    }
+
+    // Constructor de la clase con parámetros
     public Vuelos(String marcaAvion, int asiento) {
         this.marcaAvion = marcaAvion;
         this.asiento = asiento;
     }
 
-    //Métodos de la clase
+    // Métodos de la clase
     public String getMarcaAvion() {
         return marcaAvion;
     }
