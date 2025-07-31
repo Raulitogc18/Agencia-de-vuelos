@@ -1,3 +1,4 @@
+import Modelos.Precios;
 import java.util.Scanner;
 
 public class Main2 {
@@ -7,6 +8,8 @@ public class Main2 {
         System.out.print("Ingrese el tipo de moneda (por ejemplo: USD, EUR): ");
         String moneda = scanner.nextLine();
 
+        Precios precios = new Precios(moneda);
+
         System.out.print("Ingrese el precio del vuelo: ");
         double precioVuelo = scanner.nextDouble();
 
@@ -14,12 +17,12 @@ public class Main2 {
         double precioHotel = scanner.nextDouble();
 
         System.out.print("¿El precio total tiene descuento del 25%? (si/no): ");
-        String respuesta = scanner.next();
+        scanner.nextLine();
+        String respuesta = scanner.nextLine();
         boolean esOferta = respuesta.equalsIgnoreCase("si");
 
-        Precios precios = new Precios(moneda);
         precios.setPrecioVuelo(precioVuelo);
-        precios.setPrecioHotel(precioHotel, esOferta);
+        precios.setPrecioHotel(precioHotel);
         precios.setDescuentoTotal(esOferta);
 
         int opcion;
@@ -35,7 +38,7 @@ public class Main2 {
                     precios.mostrarPrecios();
                     break;
                 case 2:
-                    System.out.println("Saliendo...");
+                    System.out.println("Programa finalizado.");
                     break;
                 default:
                     System.out.println("Opción inválida. Intente de nuevo.");
