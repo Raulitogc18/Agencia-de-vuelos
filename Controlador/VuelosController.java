@@ -5,15 +5,16 @@ import Modelos.Vuelos;
 
 public class VuelosController {
     private Vuelos vuelos;
-Lugar lugar = null;
+    private Lugar lugar = null;
+    
     public VuelosController() {
         this.vuelos = new Vuelos();
     }
 
     // Crear lugar sin imprimir
     public String crearLugar(String pais, String ciudad) {
-        lugar new Lugar(pais, ciudad);
-        return "hjukljhuk";
+        lugar = new Lugar(pais, ciudad);
+        return "lugar creado exitosamente";
 
     }
 
