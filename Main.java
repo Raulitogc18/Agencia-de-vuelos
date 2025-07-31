@@ -8,7 +8,6 @@ public class Main {
 
         VuelosController vuelosController = new VuelosController();
 
-        Lugar lugar = null;
 
         int opcion;
         do {

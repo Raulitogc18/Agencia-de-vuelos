@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class VuelosController {
     private Vuelos vuelos;
 
+    private Lugar lugar = null;
     public VuelosController() {
         this.vuelos = new Vuelos();
     }
