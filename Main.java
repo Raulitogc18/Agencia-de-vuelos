@@ -5,25 +5,45 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         VuelosController vuelosController = new VuelosController();
+        
 
-
-        int opcion;
+        int opcion = 0;
         do {
             System.out.println("\n--- MENÚ ---");
             System.out.println("1. Crear lugar");
             System.out.println("2. Mostrar resumen del viaje");
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
+
+            if (!scanner.hasNextInt()) { 
+                System.out.println("Ingrese un número válido.");
+                scanner.nextLine();
+                continue;
+            }
+
             opcion = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcion) {
                 case 1:
-                    lugar = vuelosController.crearLugar(scanner);
-                    vuelosController.asignarHotel(lugar, scanner);
-                    vuelosController.asignarPuntosDeInteres(lugar, scanner);
+                    // Crear lugar
+                    System.out.print("Ingrese el país: ");
+                    String pais = scanner.nextLine();
+                    System.out.print("Ingrese la ciudad: ");
+                    String ciudad = scanner.nextLine();
+                    String mensaje = vuelosController.crearLugar(pais, ciudad);
+
+                    // Asignar hotel
+                    System.out.print("Ingrese el nombre del hotel: ");
+                    String hotel = scanner.nextLine();
+                    vuelosController.asignarHotel(hotel);
+
+                    // Asignar puntos de interés
+                    System.out.print("¿Qué puntos de interés desea visitar? ");
+                    String puntos = scanner.nextLine();
+                    vuelosController.asignarPuntosDeInteres(lugar, puntos);
+
                     break;
 
                 case 2:
