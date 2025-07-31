@@ -11,24 +11,27 @@ public class VuelosController {
         this.vuelos = new Vuelos();
     }
 
-    // Crear lugar sin imprimir
-    public String crearLugar(String pais, String ciudad) {
+    // Crear lugar
+    public void crearLugar(String pais, String ciudad) {
         lugar = new Lugar(pais, ciudad);
-        return "lugar creado exitosamente";
-
     }
 
-    // Asignar hotel sin imprimir
-    public void asignarHotel( String hotel) {
+    // Asignar hotel
+    public void asignarHotel(String hotel) {
         if (lugar != null) {
             lugar.setHotel(hotel);
         }
     }
 
-    // Asignar puntos de interés sin imprimir
-    public void asignarPuntosDeInteres(Lugar lugar, String puntos) {
+    // Asignar puntos de interés
+    public void asignarPuntosDeInteres(String puntos) {
         if (lugar != null) {
             lugar.setPuntosDeInteres(puntos);
         }
+    }
+
+    // Obtener el lugar actual
+    public Lugar getLugar() {
+        return lugar;
     }
 }

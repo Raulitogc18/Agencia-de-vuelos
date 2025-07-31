@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         VuelosController vuelosController = new VuelosController();
-        
 
         int opcion = 0;
         do {
@@ -16,7 +15,7 @@ public class Main {
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
 
-            if (!scanner.hasNextInt()) { 
+            if (!scanner.hasNextInt()) {
                 System.out.println("Ingrese un número válido.");
                 scanner.nextLine();
                 continue;
@@ -32,28 +31,32 @@ public class Main {
                     String pais = scanner.nextLine();
                     System.out.print("Ingrese la ciudad: ");
                     String ciudad = scanner.nextLine();
-                    String mensaje = vuelosController.crearLugar(pais, ciudad);
+                    vuelosController.crearLugar(pais, ciudad);
+                    System.out.println("Lugar creado exitosamente.");
 
                     // Asignar hotel
                     System.out.print("Ingrese el nombre del hotel: ");
                     String hotel = scanner.nextLine();
                     vuelosController.asignarHotel(hotel);
+                    System.out.println("Hotel asignado.");
 
                     // Asignar puntos de interés
                     System.out.print("¿Qué puntos de interés desea visitar? ");
                     String puntos = scanner.nextLine();
-                    vuelosController.asignarPuntosDeInteres(lugar, puntos);
+                    vuelosController.asignarPuntosDeInteres(puntos);
+                    System.out.println("Puntos de interés guardados.");
 
                     break;
 
                 case 2:
+                    Lugar lugar = vuelosController.getLugar();
                     if (lugar != null) {
                         System.out.println("\n--- Resumen del viaje ---");
                         System.out.println("País: " + lugar.getPais());
                         System.out.println("Ciudad: " + lugar.getCiudad());
-                        System.out.println("Hotel: " + 
+                        System.out.println("Hotel: " +
                             (lugar.getHotel() != null ? lugar.getHotel() : "No asignado"));
-                        System.out.println("Puntos de interés: " + 
+                        System.out.println("Puntos de interés: " +
                             (lugar.getPuntosDeInteres() != null ? lugar.getPuntosDeInteres() : "No ingresados"));
                     } else {
                         System.out.println("Primero debe crear un lugar.");
