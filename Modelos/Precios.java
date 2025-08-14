@@ -4,41 +4,57 @@ public class Precios {
     private String moneda;
     private double precioVuelo;
     private double precioHotel;
-    private boolean descuentoTotal;
+    private boolean descuento;
+    private double precioTotal;
 
     // Constructor
     public Precios(String moneda) {
         this.moneda = moneda;
-        this.precioVuelo = 0.0;
-        this.precioHotel = 0.0;
-        this.descuentoTotal = false;
+        this.precioVuelo = 0;
+        this.precioHotel = 0;
+        this.descuento = false;
+        this.precioTotal = 0;
     }
 
-    // Setter para precio del vuelo
+    // Getters
+    public String getMoneda() {
+        return moneda;
+    }
+
+    public double getPrecioVuelo() {
+        return precioVuelo;
+    }
+
+    public double getPrecioHotel() {
+        return precioHotel;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    // Setters
     public void setPrecioVuelo(double precioVuelo) {
         this.precioVuelo = precioVuelo;
+        calcularTotal();
     }
 
-    // Setter para precio del hotel
     public void setPrecioHotel(double precioHotel) {
         this.precioHotel = precioHotel;
+        calcularTotal();
     }
 
-    // Setter para descuento total
-    public void setDescuentoTotal(boolean descuentoTotal) {
-        this.descuentoTotal = descuentoTotal;
+    public void setDescuentoTotal(boolean esOferta) {
+        this.descuento = esOferta;
+        calcularTotal();
     }
 
-    // Método para mostrar precios
-    public void mostrarPrecios() {
+    // Método para calcular el total
+    private void calcularTotal() {
         double total = precioVuelo + precioHotel;
-        if (descuentoTotal) {
-            total *= 0.75; // Aplica 25% de descuento al total
+        if (descuento) {
+            total *= 0.9; // Aplica un 10% de descuento, por ejemplo
         }
-
-        System.out.println("\n--- Resumen de precios ---");
-        System.out.println("Vuelo: " + precioVuelo + " " + moneda);
-        System.out.println("Hotel: " + precioHotel + " " + moneda);
-        System.out.println("Total con descuento: " + total + " " + moneda);
+        this.precioTotal = total;
     }
 }
