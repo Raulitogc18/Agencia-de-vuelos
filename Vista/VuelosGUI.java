@@ -18,7 +18,7 @@ public class VuelosGUI extends JFrame {
     public VuelosGUI() {
         controller = new VuelosController();
         setTitle("Gestión de Vuelos y Lugares");
-        setSize(400, 350);
+        setSize(600, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         initUI();
@@ -26,7 +26,7 @@ public class VuelosGUI extends JFrame {
 
     private void initUI() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(6, 2, 5, 5));
+        panel.setLayout(new GridLayout(7, 6,5,6));
 
         // Campos para crear lugar
         panel.add(new JLabel("País:"));
